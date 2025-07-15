@@ -5,265 +5,230 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dégradés de couleurs</title>
     <style>
+        :root {
+            --min-item-width: 250px;
+            --gap-size: 20px;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 20px;
             background-color: #f5f5f5;
+            min-height: 100vh;
         }
+
         h1 {
             text-align: center;
             color: #333;
+            margin-bottom: 30px;
         }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(var(--min-item-width), 1fr));
+            gap: var(--gap-size);
+            max-width: 1400px;
             margin: 0 auto;
-            max-width: 1200px;
         }
-        .color-item {
-            background-color: white;
+
+        .color-card {
+            background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             overflow: hidden;
-            width: calc(50% - 20px);
-            max-width: 300px;
-            margin-bottom: 20px;
-            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
         .color-image {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover;
             cursor: pointer;
         }
+
         .color-name {
-            padding: 10px;
+            padding: 15px;
+            text-align: center;
             font-weight: bold;
             cursor: pointer;
+            background: white;
         }
+
+        /* Adaptation dynamique */
         @media (max-width: 600px) {
-            .color-item {
-                width: 100%;
+            :root {
+                --min-item-width: 150px;
+                --gap-size: 15px;
+            }
+
+            .color-image {
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            :root {
+                --min-item-width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <h1>Dégradés de couleurs</h1>
-    <div class="container">
+    <div class="gallery">
 
-        <div class="color-item">
-            <img src="images/Dégradé blanc-cyan.png" alt="Dégradé blanc-cyan" class="color-image" 
-                 onclick="copyToClipboard('blanc-cyan')">
+        <div class="color-card">
+            <img src="images/Dégradé blanc-cyan.png" alt="Dégradé blanc-cyan" class="color-image" onclick="copyToClipboard('blanc-cyan')">
             <div class="color-name" onclick="copyToClipboard('blanc-cyan')">blanc-cyan</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé bleu.png" alt="Dégradé bleu" class="color-image" 
-                 onclick="copyToClipboard('bleu')">
+        <div class="color-card">
+            <img src="images/Dégradé bleu.png" alt="Dégradé bleu" class="color-image" onclick="copyToClipboard('bleu')">
             <div class="color-name" onclick="copyToClipboard('bleu')">bleu</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé bleu-orange.png" alt="Dégradé bleu-orange" class="color-image" 
-                 onclick="copyToClipboard('bleu-orange')">
+        <div class="color-card">
+            <img src="images/Dégradé bleu-orange.png" alt="Dégradé bleu-orange" class="color-image" onclick="copyToClipboard('bleu-orange')">
             <div class="color-name" onclick="copyToClipboard('bleu-orange')">bleu-orange</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé bleu-vert.png" alt="Dégradé bleu-vert" class="color-image" 
-                 onclick="copyToClipboard('bleu-vert')">
+        <div class="color-card">
+            <img src="images/Dégradé bleu-vert.png" alt="Dégradé bleu-vert" class="color-image" onclick="copyToClipboard('bleu-vert')">
             <div class="color-name" onclick="copyToClipboard('bleu-vert')">bleu-vert</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé cyan.png" alt="Dégradé cyan" class="color-image" 
-                 onclick="copyToClipboard('cyan')">
+        <div class="color-card">
+            <img src="images/Dégradé cyan.png" alt="Dégradé cyan" class="color-image" onclick="copyToClipboard('cyan')">
             <div class="color-name" onclick="copyToClipboard('cyan')">cyan</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé cyan-rose.png" alt="Dégradé cyan-rose" class="color-image" 
-                 onclick="copyToClipboard('cyan-rose')">
+        <div class="color-card">
+            <img src="images/Dégradé cyan-rose.png" alt="Dégradé cyan-rose" class="color-image" onclick="copyToClipboard('cyan-rose')">
             <div class="color-name" onclick="copyToClipboard('cyan-rose')">cyan-rose</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé dark.png" alt="Dégradé dark" class="color-image" 
-                 onclick="copyToClipboard('dark')">
+        <div class="color-card">
+            <img src="images/Dégradé dark.png" alt="Dégradé dark" class="color-image" onclick="copyToClipboard('dark')">
             <div class="color-name" onclick="copyToClipboard('dark')">dark</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé doré.png" alt="Dégradé doré" class="color-image" 
-                 onclick="copyToClipboard('doré')">
+        <div class="color-card">
+            <img src="images/Dégradé doré.png" alt="Dégradé doré" class="color-image" onclick="copyToClipboard('doré')">
             <div class="color-name" onclick="copyToClipboard('doré')">doré</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé doré-marron.png" alt="Dégradé doré-marron" class="color-image" 
-                 onclick="copyToClipboard('doré-marron')">
+        <div class="color-card">
+            <img src="images/Dégradé doré-marron.png" alt="Dégradé doré-marron" class="color-image" onclick="copyToClipboard('doré-marron')">
             <div class="color-name" onclick="copyToClipboard('doré-marron')">doré-marron</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé doré-violet.png" alt="Dégradé doré-violet" class="color-image" 
-                 onclick="copyToClipboard('doré-violet')">
+        <div class="color-card">
+            <img src="images/Dégradé doré-violet.png" alt="Dégradé doré-violet" class="color-image" onclick="copyToClipboard('doré-violet')">
             <div class="color-name" onclick="copyToClipboard('doré-violet')">doré-violet</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé gris.png" alt="Dégradé gris" class="color-image" 
-                 onclick="copyToClipboard('gris')">
+        <div class="color-card">
+            <img src="images/Dégradé gris.png" alt="Dégradé gris" class="color-image" onclick="copyToClipboard('gris')">
             <div class="color-name" onclick="copyToClipboard('gris')">gris</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé jaune-bleu.png" alt="Dégradé jaune-bleu" class="color-image" 
-                 onclick="copyToClipboard('jaune-bleu')">
+        <div class="color-card">
+            <img src="images/Dégradé jaune-bleu.png" alt="Dégradé jaune-bleu" class="color-image" onclick="copyToClipboard('jaune-bleu')">
             <div class="color-name" onclick="copyToClipboard('jaune-bleu')">jaune-bleu</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé jaune-marron.png" alt="Dégradé jaune-marron" class="color-image" 
-                 onclick="copyToClipboard('jaune-marron')">
+        <div class="color-card">
+            <img src="images/Dégradé jaune-marron.png" alt="Dégradé jaune-marron" class="color-image" onclick="copyToClipboard('jaune-marron')">
             <div class="color-name" onclick="copyToClipboard('jaune-marron')">jaune-marron</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé light.png" alt="Dégradé light" class="color-image" 
-                 onclick="copyToClipboard('light')">
+        <div class="color-card">
+            <img src="images/Dégradé light.png" alt="Dégradé light" class="color-image" onclick="copyToClipboard('light')">
             <div class="color-name" onclick="copyToClipboard('light')">light</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé marron.png" alt="Dégradé marron" class="color-image" 
-                 onclick="copyToClipboard('marron')">
+        <div class="color-card">
+            <img src="images/Dégradé marron.png" alt="Dégradé marron" class="color-image" onclick="copyToClipboard('marron')">
             <div class="color-name" onclick="copyToClipboard('marron')">marron</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé noir-blanc.png" alt="Dégradé noir-blanc" class="color-image" 
-                 onclick="copyToClipboard('noir-blanc')">
+        <div class="color-card">
+            <img src="images/Dégradé noir-blanc.png" alt="Dégradé noir-blanc" class="color-image" onclick="copyToClipboard('noir-blanc')">
             <div class="color-name" onclick="copyToClipboard('noir-blanc')">noir-blanc</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé orange.png" alt="Dégradé orange" class="color-image" 
-                 onclick="copyToClipboard('orange')">
+        <div class="color-card">
+            <img src="images/Dégradé orange.png" alt="Dégradé orange" class="color-image" onclick="copyToClipboard('orange')">
             <div class="color-name" onclick="copyToClipboard('orange')">orange</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé rose-blanc.png" alt="Dégradé rose-blanc" class="color-image" 
-                 onclick="copyToClipboard('rose-blanc')">
+        <div class="color-card">
+            <img src="images/Dégradé rose-blanc.png" alt="Dégradé rose-blanc" class="color-image" onclick="copyToClipboard('rose-blanc')">
             <div class="color-name" onclick="copyToClipboard('rose-blanc')">rose-blanc</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé rouge.png" alt="Dégradé rouge" class="color-image" 
-                 onclick="copyToClipboard('rouge')">
+        <div class="color-card">
+            <img src="images/Dégradé rouge.png" alt="Dégradé rouge" class="color-image" onclick="copyToClipboard('rouge')">
             <div class="color-name" onclick="copyToClipboard('rouge')">rouge</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé rouge-jaune.png" alt="Dégradé rouge-jaune" class="color-image" 
-                 onclick="copyToClipboard('rouge-jaune')">
+        <div class="color-card">
+            <img src="images/Dégradé rouge-jaune.png" alt="Dégradé rouge-jaune" class="color-image" onclick="copyToClipboard('rouge-jaune')">
             <div class="color-name" onclick="copyToClipboard('rouge-jaune')">rouge-jaune</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé rouge-vert.png" alt="Dégradé rouge-vert" class="color-image" 
-                 onclick="copyToClipboard('rouge-vert')">
+        <div class="color-card">
+            <img src="images/Dégradé rouge-vert.png" alt="Dégradé rouge-vert" class="color-image" onclick="copyToClipboard('rouge-vert')">
             <div class="color-name" onclick="copyToClipboard('rouge-vert')">rouge-vert</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé turquoise.png" alt="Dégradé turquoise" class="color-image" 
-                 onclick="copyToClipboard('turquoise')">
+        <div class="color-card">
+            <img src="images/Dégradé turquoise.png" alt="Dégradé turquoise" class="color-image" onclick="copyToClipboard('turquoise')">
             <div class="color-name" onclick="copyToClipboard('turquoise')">turquoise</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé vert terne.png" alt="Dégradé vert terne" class="color-image" 
-                 onclick="copyToClipboard('vert terne')">
+        <div class="color-card">
+            <img src="images/Dégradé vert terne.png" alt="Dégradé vert terne" class="color-image" onclick="copyToClipboard('vert terne')">
             <div class="color-name" onclick="copyToClipboard('vert terne')">vert terne</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé vert-marron.png" alt="Dégradé vert-marron" class="color-image" 
-                 onclick="copyToClipboard('vert-marron')">
+        <div class="color-card">
+            <img src="images/Dégradé vert-marron.png" alt="Dégradé vert-marron" class="color-image" onclick="copyToClipboard('vert-marron')">
             <div class="color-name" onclick="copyToClipboard('vert-marron')">vert-marron</div>
         </div>
         
-    </div>
-    <div class="container">
-            
-        <div class="color-item">
-            <img src="images/Dégradé vert-violet.png" alt="Dégradé vert-violet" class="color-image" 
-                 onclick="copyToClipboard('vert-violet')">
+        <div class="color-card">
+            <img src="images/Dégradé vert-violet.png" alt="Dégradé vert-violet" class="color-image" onclick="copyToClipboard('vert-violet')">
             <div class="color-name" onclick="copyToClipboard('vert-violet')">vert-violet</div>
         </div>
         
-        <div class="color-item">
-            <img src="images/Dégradé violet.png" alt="Dégradé violet" class="color-image" 
-                 onclick="copyToClipboard('violet')">
+        <div class="color-card">
+            <img src="images/Dégradé violet.png" alt="Dégradé violet" class="color-image" onclick="copyToClipboard('violet')">
             <div class="color-name" onclick="copyToClipboard('violet')">violet</div>
         </div>
         
     </div>
-
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert("Copié dans le presse-papier: " + text);
+                alert("Copié : " + text);
             }).catch(err => {
-                console.error('Erreur lors de la copie: ', err);
-                // Fallback pour les anciens navigateurs
+                // Fallback pour anciens navigateurs
                 const textarea = document.createElement('textarea');
                 textarea.value = text;
                 document.body.appendChild(textarea);
                 textarea.select();
                 try {
                     document.execCommand('copy');
-                    alert("Copié dans le presse-papier: " + text);
+                    alert("Copié : " + text);
                 } catch (err) {
-                    alert("Échec de la copie: " + err);
+                    alert("Échec de la copie");
                 }
                 document.body.removeChild(textarea);
             });
